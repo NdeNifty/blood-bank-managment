@@ -3,11 +3,24 @@ const router = express.Router();
 const BloodBank = require('../models/BloodBank');
 
 router.post('/', async (req, res) => {
+    const { adminname, username, password, bloodbankname } = req.body;
+
     try {
-      const { adminname, username, password, bloodbankname } = req.body;
-      const bloodBank = new BloodBank({ adminname, username, password, bloodbankname });
+      // Check if the username already exists
+      const existingBloodBank = await BloodBank.findOne({ username });
+  
+      if (existingBloodBank) {
+        return res.status(400).json({ message: 'Username already exists' });
+      }
+  
+      // Hash the password
+      const hashedPassword = await bcrypt.hash(password, 10);
+  
+      // Create a new blood bank object with the hashed password
+      const bloodBank = new BloodBank({ adminname, username, password: hashedPassword, bloodbankname });
       await bloodBank.save();
-      res.status(201).json({ message: 'Blood bank created successfully' });
+  
+      res.redirect('/login');
     } catch (error) {
       console.error(error);
       res.status(500).send('Server Error');
