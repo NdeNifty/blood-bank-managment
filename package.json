@@ -1,0 +1,14 @@
+{
+  "name": "blood-bank-managment",
+  "version": "1.0.0",
+  "description": "App to managemnt blood banks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nde Kong",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^7.0.2"
+  }
+}

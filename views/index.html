@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Blood Bank App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Blood Bank App</h1>
+    <div class="form-container">
+      <form id="login-form" class="login-form">
+        <h2>Login</h2>
+        <div class="form-input">
+          <label>Blood Bank Name:</label>
+          <input type="text" id="login-blood-bank-name" required>
+        </div>
+        <div class="form-input">
+          <label>Username:</label>
+          <input type="text" id="login-username" required>
+        </div>
+        <div class="form-input">
+          <label>Password:</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <div class="form-input">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+      <form id="signup-form" action="/signup" method="POST" class="signup-form">
+        <h2>Sign Up</h2>
+        <div class="form-input">
+          <label>Blood Bank Name:</label>
+          <input type="text" id="signup-blood-bank-name" required>
+        </div>
+        <div class="form-input">
+            <label>Admin Name:</label>
+            <input type="text" id="admin-name" required>
+          </div>
+        <div class="form-input">
+          <label>Username:</label>
+          <input type="text" id="signup-username" required>
+        </div>
+        <div class="form-input">
+          <label>Password:</label>
+          <input type="password" id="signup-password" required>
+        </div>
+        <div class="form-input">
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="login.js" type="js"></script>
+  <script src="signup.js" type="js"></script>
+</body>
+</html>
