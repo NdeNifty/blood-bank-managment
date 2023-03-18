@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const BloodBank = require('../models/BloodBank');
 
 // Login page
-router.get('/login', (req, res) => {
+router.get('/', (req, res) => {
   res.render('login');
 });
 

@@ -9,16 +9,22 @@ const signupRoutes = require('./routes/signupRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 
 const app = express();
+
+const mongoStore = new MongoStore({
+    mongooseConnection: mongoose.connection,
+    collection: 'sessions'
+  });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Set up session middleware
 app.use(session({
-  secret: 'my-secret-key',
-  resave: false,
-  saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
+    secret: 'mysecret',
+    resave: false,
+    saveUninitialized: false,
+    store: mongoStore,
+    cookie: { maxAge: 60 * 60 * 1000 } // 1 hour
+  }));
 
 // Set up JWT middleware
 app.use((req, res, next) => {

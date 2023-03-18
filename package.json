@@ -9,6 +9,10 @@
   "author": "Nde Kong",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^3.2.0",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.2"
   }
 }
