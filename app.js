@@ -9,13 +9,15 @@ const signupRoutes = require('./routes/signupRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 
 const app = express();
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const mongoStore = new MongoStore({
     mongooseConnection: mongoose.connection,
     collection: 'sessions'
   });
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
+
 
 // Set up session middleware
 app.use(session({

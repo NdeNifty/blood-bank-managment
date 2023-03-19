@@ -1,3 +1,4 @@
+console.log("Signup JS loaded");
 const signupForm = document.querySelector('#signup-form');
 
 function handleSignup(event) {
@@ -9,10 +10,10 @@ function handleSignup(event) {
   const bloodBankNameInput = document.querySelector('#blood-bank-name-input');
 
   const data = {
-    name: nameInput.value,
+    adminname: nameInput.value,
     username: usernameInput.value,
     password: passwordInput.value,
-    bloodBankName: bloodBankNameInput.value,
+    bloodbankname: bloodBankNameInput.value,
   };
   console.log(data)
   fetch('/signup', {

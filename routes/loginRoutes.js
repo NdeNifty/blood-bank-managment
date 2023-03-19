@@ -28,6 +28,7 @@ router.post('/login', async (req, res) => {
     // Set the JWT token as a cookie in the response
     res.cookie('jwt', token, { httpOnly: true });
     // Redirect to the blood bank management page
+    console.log('This worked');
     res.redirect('/bloodbank/management');
   } catch (error) {
     console.error(error);
